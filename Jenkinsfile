@@ -30,14 +30,6 @@ pipeline {
                 powershell label: '', script: '''Get-CimInstance -ClassName Win32_QuickFixEngineering -ComputerName . -Property HotFixID'''
             }
         }
-        stage('Test on Linux at end of Jenkinsfile') {
-            agent {
-                label 'windows'
-            }
-            steps {
-                echo 'Hallow Linux END...'
-            }
-        }
     }
 }
 
