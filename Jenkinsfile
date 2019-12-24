@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'dev'
+        label 'windows'
   }
     stages {
         stage('Test') {
@@ -18,24 +18,11 @@ pipeline {
                 powershell label: '', script: '$PSVersionTable'
             }
         }
-        stage('Test on Linux between Powershell stages') {
-            agent {
-                label 'linux'
-            }
-            steps {
-                sh label: '', script: 'ls -lrat'
-            }
-        }
         stage('Get-ChildItem') {
             steps {
                 powershell label: '', script: '''Get-ChildItem |
                 Sort-Object -Property LastWriteTime, Name |
                 Format-Table -Property LastWriteTime, Name'''
-            }
-        }
-        stage('Get-DiskUsage') {
-            steps {
-                powershell returnStatus: true, script: '.\\Get-DiskUsage -IncludeSubdirectories'
             }
         }
         stage('Get-CimInstance') {
@@ -45,7 +32,7 @@ pipeline {
         }
         stage('Test on Linux at end of Jenkinsfile') {
             agent {
-                label 'linux'
+                label 'windows'
             }
             steps {
                 echo 'Hallow Linux END...'
