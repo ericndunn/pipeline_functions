@@ -1,11 +1,12 @@
+@Library('my-shared-libs')_
 pipeline {
     agent {
         label 'windows'
   }
     stages {
-        stage('Test') {
+        stage('test') {
             steps {
-                echo 'Testing..'
+                sayHello 'Joe'
             }
         }
         stage('Environment variables') {
