@@ -1,4 +1,4 @@
-@Library('my-shared-libs')_
+@Library('my-shared-libs/vars/sayHello.groovy')_
 pipeline {
     agent {
         label 'windows'
