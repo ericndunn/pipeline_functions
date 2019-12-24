@@ -1,3 +1,5 @@
+// @Library('my-shared-libs@master')_
+// evenOrOdd(currentBuild.getNumber())
 @Library('my-shared-libs@master')_
 pipeline {
     agent {
