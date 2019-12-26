@@ -2,26 +2,19 @@
 // evenOrOdd(currentBuild.getNumber())
 @Library('my-shared-libs@feature/Test_Functions')_
 pipeline {
-    agent {
-        none
-    //     label 'windows'
-    }
+    agent { label 'master' }
     stages {
         stage ('buildPlugin build') {
+            agent { label 'master' }
             steps {
-                agent {
-                    label 'master'
-                }
                 script { 
                     buildPlugin name: 'script-security'
                 }
             }
         }
         stage('test') {
+            agent { label 'windows' }
             steps {
-                agent {
-                    label 'windows'
-                }
                 sayHello 'Joe'
             }
         }
