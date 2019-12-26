@@ -5,19 +5,19 @@ pipeline {
     agent { label 'master' }
     stages {
         stage ('buildPlugin build') {
-            agent { label 'master' }
+            // agent { label 'master' }
             steps {
                 script { 
                     buildPlugin name: 'script-security'
                 }
             }
         }
-        stage('test') {
-            agent { label 'windows' }
-            steps {
-                sayHello 'Joe'
-            }
-        }
+        // stage('test') {
+        //     agent { label 'windows' }
+        //     steps {
+        //         sayHello 'Joe'
+        //     }
+        // }
         // stage('Environment variables') {
         //     steps {
         //         bat('set')
