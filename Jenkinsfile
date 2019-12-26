@@ -13,7 +13,6 @@ pipeline {
                 }
                 script { 
                     buildPlugin name: 'script-security'
-                    }
                 }
             }
         }
