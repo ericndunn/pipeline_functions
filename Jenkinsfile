@@ -4,12 +4,12 @@
 pipeline {
     agent {
         label 'windows'
-  }
+    }
     stages {
-        stage ('Example') {
+        stage ('buildPlugin build') {
             steps {
                 agent {
-                label 'master'
+                    label 'master'
                 }
                 script { 
                     buildPlugin name: 'script-security'
