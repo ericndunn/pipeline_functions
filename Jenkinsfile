@@ -29,8 +29,10 @@ pipeline {
         }
         stage ('Example') {
             steps {
+                node('master') {
                 script { 
                     buildPlugin name: 'script-security'
+                    }
                 }
             }
         }
