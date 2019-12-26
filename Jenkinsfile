@@ -2,9 +2,9 @@
 // evenOrOdd(currentBuild.getNumber())
 @Library('my-shared-libs@feature/Test_Functions')_
 pipeline {
-    // agent {
+    agent {
     //     label 'windows'
-    // }
+    }
     stages {
         stage ('buildPlugin build') {
             steps {
