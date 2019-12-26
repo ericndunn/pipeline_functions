@@ -11,16 +11,16 @@ pipeline {
                 sayHello 'Joe'
             }
         }
-        stage('Environment variables') {
-            steps {
-                bat('set')
-            }
-        }
-        stage('Version of PS') {
-            steps {
-                powershell label: '', script: '$PSVersionTable'
-            }
-        }
+        // stage('Environment variables') {
+        //     steps {
+        //         bat('set')
+        //     }
+        // }
+        // stage('Version of PS') {
+        //     steps {
+        //         powershell label: '', script: '$PSVersionTable'
+        //     }
+        // }
         stage ('Example') {
         steps {
             script { 
