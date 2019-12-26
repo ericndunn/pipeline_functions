@@ -13,7 +13,7 @@ pipeline {
             // agent { label 'master' }
             steps {
                 script { 
-                    buildPlugin name: 'script-security'
+                    buildPlugin name: 'pipeline-stage-view'
                 }
             }
         }
