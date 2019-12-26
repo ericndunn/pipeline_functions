@@ -3,6 +3,7 @@
 @Library('my-shared-libs@feature/Test_Functions')_
 pipeline {
     agent {
+        any
     //     label 'windows'
     }
     stages {
