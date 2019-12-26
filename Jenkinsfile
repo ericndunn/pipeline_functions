@@ -13,7 +13,7 @@ pipeline {
             // agent { label 'master' }
             steps {
                 script { 
-                    buildPlugin name: 'simple-web'
+                    buildPlugin name: 'mvnexamples'
                 }
             }
         }
