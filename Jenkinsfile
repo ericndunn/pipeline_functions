@@ -3,7 +3,7 @@
 @Library('my-shared-libs@master')_
 pipeline {
     agent {
-        label 'windows'
+        label 'master'
   }
     stages {
         stage('test') {
@@ -21,18 +21,25 @@ pipeline {
                 powershell label: '', script: '$PSVersionTable'
             }
         }
-        stage('Get-ChildItem') {
-            steps {
-                powershell label: '', script: '''Get-ChildItem |
-                Sort-Object -Property LastWriteTime, Name |
-                Format-Table -Property LastWriteTime, Name'''
+        stage ('Example') {
+        steps {
+            script { 
+                buildPlugin name: 'script-security'
+                }
             }
         }
-        stage('Get-CimInstance') {
-            steps {
-                powershell label: '', script: '''Get-CimInstance -ClassName Win32_QuickFixEngineering -ComputerName . -Property HotFixID'''
-            }
-        }
+        // stage('Get-ChildItem') {
+        //     steps {
+        //         powershell label: '', script: '''Get-ChildItem |
+        //         Sort-Object -Property LastWriteTime, Name |
+        //         Format-Table -Property LastWriteTime, Name'''
+        //     }
+        // }
+        // stage('Get-CimInstance') {
+        //     steps {
+        //         powershell label: '', script: '''Get-CimInstance -ClassName Win32_QuickFixEngineering -ComputerName . -Property HotFixID'''
+        //     }
+        // }
     }
 }
 
