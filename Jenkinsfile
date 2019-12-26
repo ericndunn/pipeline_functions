@@ -4,6 +4,11 @@
 pipeline {
     agent { label 'master' }
     stages {
+        stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage ('buildPlugin build') {
             // agent { label 'master' }
             steps {
