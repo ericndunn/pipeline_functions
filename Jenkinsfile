@@ -6,6 +6,15 @@ pipeline {
         label 'master'
   }
     stages {
+        stage ('Example') {
+            steps {
+                node('master') {
+                script { 
+                    buildPlugin name: 'script-security'
+                    }
+                }
+            }
+        }
         stage('test') {
             steps {
                 node('windows') {
@@ -24,15 +33,6 @@ pipeline {
             steps {
                 node('windows') {
                 powershell label: '', script: '$PSVersionTable'
-                }
-            }
-        }
-        stage ('Example') {
-            steps {
-                node('master') {
-                script { 
-                    buildPlugin name: 'script-security'
-                    }
                 }
             }
         }
