@@ -3,7 +3,7 @@
 @Library('my-shared-libs@feature/Test_Functions')_
 pipeline {
     agent {
-        label 'master'
+        label 'windows'
   }
     stages {
         stage ('Example') {
