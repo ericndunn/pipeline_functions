@@ -26,7 +26,7 @@ pipeline {
         stage('Environment variables') {
             agent { label 'windows' } 
             when {
-                branch 'master'
+                branch 'feature/Test_Functions'
             }           
             steps {
                 bat('set')
