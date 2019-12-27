@@ -24,16 +24,19 @@ pipeline {
             }
         }
         stage('Environment variables') {
+            agent { label 'windows' }            
             steps {
                 bat('set')
              }
         }
         stage('Version of PS') {
+            agent { label 'windows' }           
             steps {
                 powershell label: '', script: '$PSVersionTable'
             }
         }
         stage('Get-ChildItem') {
+            agent { label 'windows' }
             steps {
                 powershell label: '', script: '''Get-ChildItem |
                 Sort-Object -Property LastWriteTime, Name |
@@ -41,6 +44,7 @@ pipeline {
             }
         }
         stage('Get-CimInstance') {
+            agent { label 'windows' }
             steps {
                 powershell label: '', script: '''Get-CimInstance -ClassName Win32_QuickFixEngineering -ComputerName . -Property HotFixID'''
             }
