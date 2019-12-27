@@ -24,7 +24,10 @@ pipeline {
             }
         }
         stage('Environment variables') {
-            agent { label 'windows' }            
+            agent { label 'windows' } 
+            when {
+                branch 'master'
+            }           
             steps {
                 bat('set')
              }
