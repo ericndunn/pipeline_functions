@@ -1,4 +1,4 @@
-// @Library('my-shared-libs@master')_
+//@Library('my-shared-libs@master')_
 // evenOrOdd(currentBuild.getNumber())
 @Library('my-shared-libs@feature/Test_Functions')_
 pipeline {
@@ -17,12 +17,12 @@ pipeline {
                 }
             }
         }
-        // stage('test') {
-        //     agent { label 'windows' }
-        //     steps {
-        //         sayHello 'Joe'
-        //     }
-        // }
+        stage('test') {
+            agent { label 'windows' }
+            steps {
+                sayHello 'Joe'
+            }
+        }
         // stage('Environment variables') {
         //     steps {
         //         bat('set')
